@@ -206,10 +206,10 @@
         <p>&copy; 2021 FIBERCONN PRIME SOLUTIONS INC.</p>
     </footer>
 
-    <!-- LEAFLET MAP JAVASCRIPT -->
+    <!-- LEAFLET MAP & INTERACTION JAVASCRIPT -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
-        // LEAFLET MAP SCRIPT
+        // 1. LEAFLET MAP INITIALIZATION
         const map = L.map('map').setView([14.2000, 121.5000], 7);
 
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -282,20 +282,26 @@
              `);
         });
 
-        // AUTO-ACTIVE SCROLL SCRIPT FOR NAVBAR LINKS
-        const sections = document.querySelectorAll('section, header');
+        // 2. AUTO-ACTIVE SCROLL SCRIPT WITH BOTTOM DETECTION
+        const sections = document.querySelectorAll('section');
         const navLinks = document.querySelectorAll('header nav ul li a');
 
-        window.addEventListener('scroll', () => {
+        function updateActiveNav() {
             let currentSection = '';
 
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (window.pageYOffset >= (sectionTop - sectionHeight / 3)) {
-                    currentSection = section.getAttribute('id');
-                }
-            });
+            // Tinitingnan kung nakarating na sa pinakadulo ng page ang scroll
+            const isAtBottom = (window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 50);
+
+            if (isAtBottom) {
+                currentSection = 'contact'; // Kapag nasa dulo, matic na 'contact' ang i-highlight
+            } else {
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 120; // Offset para sa sticky header
+                    if (window.scrollY >= sectionTop) {
+                        currentSection = section.getAttribute('id');
+                    }
+                });
+            }
 
             navLinks.forEach(link => {
                 link.classList.remove('active');
@@ -303,7 +309,10 @@
                     link.classList.add('active');
                 }
             });
-        });
+        }
+
+        window.addEventListener('scroll', updateActiveNav);
+        window.addEventListener('load', updateActiveNav);
     </script>
 </body>
 </html>
