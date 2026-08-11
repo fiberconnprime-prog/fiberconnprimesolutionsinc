@@ -106,8 +106,8 @@ header nav ul li a.active {
    3. HERO SECTION (DESKTOP)
    ========================================== */
 .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), 
-                url('FPSI header.jpg') center center / cover no-repeat;
+    /* Inalis ang dark overlay, orihinal na kulay na ng picture */
+    background: url('FPSI header.jpg') center center / cover no-repeat;
     height: 65vh;
     min-height: 380px;
     display: flex;
@@ -458,12 +458,12 @@ footer p {
         letter-spacing: 1px;
     }
 
-    /* FULL MOBILE IMAGE VISIBILITY FIX */
+    /* FULL MOBILE IMAGE VISIBILITY FIX (AS IS IMAGE COLOR) */
     .hero {
         height: auto;
         min-height: auto;
-        aspect-ratio: 16 / 9;       /* Sumusunod sa exact aspect ratio ng litrato */
-        background-size: 100% 100%; /* Ipinapakita ang 100% ng buong larawan nang walang bawas */
+        aspect-ratio: 16 / 9;
+        background-size: 100% 100%;
         background-position: center;
         padding: 15px;
     }
