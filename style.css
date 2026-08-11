@@ -247,8 +247,9 @@ header nav ul li a.active {
 }
 
 .service-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 20px;
 }
 
@@ -259,6 +260,7 @@ header nav ul li a.active {
     border: 1px solid #eeeeee;
     border-top: 4px solid #e64825;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+    width: 280px; /* Nilagyan ng tiyak na lapad para maganda ang pagkakagitna */
 }
 
 .card h3 {
