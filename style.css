@@ -939,13 +939,12 @@ footer p {
 
 
     .hero {
-        height: auto;
-        min-height: auto;
-        aspect-ratio: 16 / 9;
-        background-size: 100% 100%;
+        height: clamp(360px, 72vh, 560px);
+        min-height: 360px;
+        aspect-ratio: auto;
+        background-size: cover;
         background-position: center;
-        min-height: 620px;
-        padding: 30px 20px 190px;
+        padding: 30px 15px;
     }
 
     .hero-content {
@@ -953,10 +952,12 @@ footer p {
     }
 
     .hero-content h1 {
-        font-size: clamp(12px, 4.1vw, 28px);
-        line-height: 1;
+        width: 100%;
+        font-size: clamp(20px, 7vw, 32px);
+        line-height: 1.08;
         max-width: 100%;
         white-space: normal;
+        overflow-wrap: anywhere;
     }
 
     .about, .services, .projects-map, .locations, .equipment {
@@ -964,8 +965,14 @@ footer p {
     }
 
     .about h2, .services h2, .projects-map h2, .locations h2 {
-        font-size: 34px;
+        font-size: clamp(26px, 8vw, 34px);
         margin-bottom: 20px;
+    }
+
+    .about p,
+    .section-intro,
+    .section-subtitle {
+        max-width: 100%;
     }
 
     .section-heading {
@@ -1101,6 +1108,9 @@ footer p {
     }
 
     .service-cards {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         width: 100%;
         gap: 15px;
     }
