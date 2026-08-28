@@ -928,6 +928,13 @@ footer p {
         letter-spacing: 0.7px;
     }
 
+    .logo {
+        width: 100%;
+        justify-content: center;
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgba(30, 61, 89, 0.2);
+    }
+
     header nav ul {
         flex-wrap: wrap;
         justify-content: center;
@@ -941,8 +948,8 @@ footer p {
 
 
     .hero {
-        height: clamp(360px, 72vh, 560px);
-        min-height: 360px;
+        height: clamp(300px, 84vw, 420px);
+        min-height: 300px;
         aspect-ratio: auto;
         background-size: cover;
         background-position: left center;
