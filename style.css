@@ -904,9 +904,11 @@ footer p {
     }
 
     .logo a {
-        font-size: 15px;
-        line-height: 1.3;
         display: block;
+        max-width: min(100%, 330px);
+        font-size: clamp(11px, 3.8vw, 15px);
+        line-height: 1.2;
+        letter-spacing: 0.7px;
     }
 
     header nav ul {
