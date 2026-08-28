@@ -26,6 +26,7 @@
                     <li><a href="#home" class="active">HOME</a></li>
                     <li><a href="#about">ABOUT</a></li>
                     <li><a href="#services">SERVICES</a></li>
+                    <li><a href="#equipment">EQUIPMENT</a></li>
                     <li><a href="#projects-map">PROJECTS</a></li>
                     <li><a href="#locations">LOCATIONS</a></li>
                     <li><a href="#contact">CONTACT</a></li>
@@ -37,7 +38,54 @@
     <!-- HERO SECTION -->
     <section class="hero" id="home">
         <div class="hero-content">
+            <p class="hero-kicker">Telecommunication infrastructure specialists</p>
             <h1>BUILDING TRUST, ONE CONNECTION AT A TIME</h1>
+            <a class="hero-link" href="#equipment">Explore our equipment <span aria-hidden="true">&#8594;</span></a>
+        </div>
+    </section>
+
+    <!-- EQUIPMENT SECTION -->
+    <section class="equipment" id="equipment">
+        <div class="container">
+            <div class="section-heading">
+                <p class="eyebrow">Capabilities in the field</p>
+                <h2>Equipment that keeps every connection moving.</h2>
+                <p class="section-intro">Our active fleet supports underground installation, transport, logistics, and fiber optic testing across every stage of delivery.</p>
+            </div>
+            <div class="equipment-stats" aria-label="Equipment summary">
+                <div class="equipment-stat">
+                    <strong class="count-number" data-count="45">0</strong>
+                    <span>total equipment units</span>
+                </div>
+                <div class="equipment-stat">
+                    <strong class="count-number" data-count="15">0</strong>
+                    <span>equipment types</span>
+                </div>
+                <div class="equipment-stat">
+                    <strong class="count-number" data-count="9">0</strong>
+                    <span>fiber testing units</span>
+                </div>
+            </div>
+            <div class="equipment-list" aria-label="Current equipment inventory">
+                <div class="equipment-list-column">
+                    <div class="equipment-row equipment-row-heading"><span>No.</span><span>Description</span><span>Quantity</span></div>
+                    <div class="equipment-row"><span>01</span><span>HDD Machine</span><strong>10</strong></div>
+                    <div class="equipment-row"><span>02</span><span>Service Vehicle</span><strong>7</strong></div>
+                    <div class="equipment-row"><span>03</span><span>Water Tanker</span><strong>3</strong></div>
+                    <div class="equipment-row"><span>04</span><span>Elf Truck with Boom</span><strong>3</strong></div>
+                    <div class="equipment-row"><span>05</span><span>Mini Dump Truck</span><strong>1</strong></div>
+                    <div class="equipment-row"><span>06</span><span>Self-Loader Truck</span><strong>2</strong></div>
+                    <div class="equipment-row"><span>07</span><span>Trailer Truck Tractor Head</span><strong>1</strong></div>
+                    <div class="equipment-row"><span>08</span><span>Trailer (High Bed &amp; Low Bed)</span><strong>2</strong></div>
+                    <div class="equipment-row"><span>09</span><span>Back Hoe</span><strong>4</strong></div>
+                    <div class="equipment-row"><span>10</span><span>10-Wheeler Truck with Boom</span><strong>2</strong></div>
+                    <div class="equipment-row"><span>11</span><span>10-Wheeler Truck Dropside</span><strong>1</strong></div>
+                    <div class="equipment-row"><span>12</span><span>Blowing Machine</span><strong>2</strong></div>
+                    <div class="equipment-row"><span>13</span><span>Fusion Machine</span><strong>3</strong></div>
+                    <div class="equipment-row"><span>14</span><span>OTDR</span><strong>2</strong></div>
+                    <div class="equipment-row"><span>15</span><span>OPM</span><strong>2 sets</strong></div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -147,6 +195,20 @@
         <div class="container">
             <h2>Our Completed &amp; Ongoing Projects</h2>
             <p class="section-subtitle">Click on any pin on the map to view project details.</p>
+            <div class="project-stats" aria-label="Project summary">
+                <div class="project-stat">
+                    <strong class="project-count-number" data-count="24">0</strong>
+                    <span>completed projects</span>
+                </div>
+                <div class="project-stat project-stat-ongoing">
+                    <strong class="project-count-number" data-count="2">0</strong>
+                    <span>ongoing projects</span>
+                </div>
+                <div class="project-stat">
+                    <strong class="project-count-number" data-count="26">0</strong>
+                    <span>total projects</span>
+                </div>
+            </div>
             <div id="map"></div>
         </div>
     </section>
@@ -272,7 +334,7 @@
             L.marker(project.coords, { icon: chosenIcon })
              .addTo(map)
              .bindPopup(`
-                <div style="font-family: Arial, sans-serif; padding: 5px; width: 200px;">
+                <div style="font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif; padding: 5px; width: 200px;">
                   <h4 style="margin: 0 0 6px 0; color: #e64825; font-size: 14px; text-transform: uppercase;">${project.title}</h4>
                   <p style="margin: 2px 0; font-size: 12px;"><strong>Client:</strong> ${project.client}</p>
                   <p style="margin: 2px 0; font-size: 12px;"><strong>Methodology:</strong> ${project.method}</p>
@@ -280,7 +342,68 @@
                   <p style="margin: 4px 0 0 0; font-size: 12px; color: ${statusColor};"><strong>Status:</strong> ${project.status}</p>
                 </div>
              `);
+
+            L.marker(project.coords, {
+                icon: L.divIcon({
+                    className: 'project-location-dot',
+                    html: `<span style="display: block; width: 6px; height: 6px; margin: 0; background-color: ${statusColor}; border-radius: 50%;"></span>`,
+                    iconSize: [10, 10],
+                    iconAnchor: [5, 5]
+                }),
+                interactive: false,
+                zIndexOffset: -100
+            }).addTo(map);
         });
+
+        const equipmentCounters = document.querySelectorAll('.count-number');
+        const equipmentStats = document.querySelector('.equipment-stats');
+        const projectCounters = document.querySelectorAll('.project-count-number');
+        const projectStats = document.querySelector('.project-stats');
+
+        function animateCounters(counters) {
+            counters.forEach(counter => {
+                const target = Number(counter.dataset.count);
+                const duration = 1200;
+                const startTime = performance.now();
+
+                function updateCounter(currentTime) {
+                    const progress = Math.min((currentTime - startTime) / duration, 1);
+                    counter.textContent = Math.floor(progress * target);
+
+                    if (progress < 1) {
+                        requestAnimationFrame(updateCounter);
+                    }
+                }
+
+                requestAnimationFrame(updateCounter);
+            });
+        }
+
+        if (equipmentStats && 'IntersectionObserver' in window) {
+            const equipmentObserver = new IntersectionObserver(entries => {
+                if (entries[0].isIntersecting) {
+                    animateCounters(equipmentCounters);
+                    equipmentObserver.disconnect();
+                }
+            }, { threshold: 0.35 });
+
+            equipmentObserver.observe(equipmentStats);
+        } else {
+            animateCounters(equipmentCounters);
+        }
+
+        if (projectStats && 'IntersectionObserver' in window) {
+            const projectObserver = new IntersectionObserver(entries => {
+                if (entries[0].isIntersecting) {
+                    animateCounters(projectCounters);
+                    projectObserver.disconnect();
+                }
+            }, { threshold: 0.35 });
+
+            projectObserver.observe(projectStats);
+        } else {
+            animateCounters(projectCounters);
+        }
 
 
         const sections = document.querySelectorAll('section');
