@@ -9,21 +9,19 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     });
 });
 
-document.querySelectorAll('.card').forEach(card => {
-    card.addEventListener('click', () => {
-        document.querySelectorAll('.card.is-selected').forEach(selectedCard => {
-            if (selectedCard !== card) {
-                selectedCard.classList.remove('is-selected');
-            }
-        });
-        card.classList.toggle('is-selected');
-    });
-});
+const contactForm = document.querySelector('#contact-form');
 
-document.addEventListener('click', event => {
-    if (!event.target.closest('.card')) {
-        document.querySelectorAll('.card.is-selected').forEach(card => {
-            card.classList.remove('is-selected');
-        });
-    }
-});
+if (contactForm) {
+    contactForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const formData = new FormData(contactForm);
+        const fullName = `${formData.get('firstName')} ${formData.get('lastName')}`;
+        const email = formData.get('email');
+        const subject = formData.get('subject');
+        const message = formData.get('message');
+        const body = `Name: ${fullName}\nEmail: ${email}\n\n${message}`;
+
+        window.location.href = `mailto:fiberconn.prime@ironconbuilders.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    });
+}
