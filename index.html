@@ -236,13 +236,14 @@
                 <p class="section-intro">Our active fleet supports underground installation, transport, logistics, and fiber optic testing across every stage of delivery.</p>
             </div>
             <div class="equipment-stats" aria-label="Equipment summary">
-                <div class="equipment-stat equipment-stat-selectable" role="button" tabindex="0" aria-expanded="false"><strong class="count-number" data-count="45">0</strong><span>total equipment units</span></div>
-                <div class="equipment-stat equipment-stat-selectable" role="button" tabindex="0" aria-expanded="false"><strong class="count-number" data-count="15">0</strong><span>equipment types</span></div>
-                <div class="equipment-stat equipment-stat-selectable" role="button" tabindex="0" aria-expanded="false"><strong class="count-number" data-count="9">0</strong><span>fiber testing units</span></div>
+                <div class="equipment-stat"><strong class="count-number" data-count="45">0</strong><span>total equipment units</span></div>
+                <div class="equipment-stat equipment-stat-selectable" data-equipment-filter="types" role="button" tabindex="0" aria-expanded="false"><strong class="count-number" data-count="15">0</strong><span>equipment types</span></div>
+                <div class="equipment-stat equipment-stat-selectable" data-equipment-filter="testing" role="button" tabindex="0" aria-expanded="false"><strong class="count-number" data-count="9">0</strong><span>fiber testing units</span></div>
             </div>
             <p class="section-subtitle equipment-instruction">Click any number above to view the equipment list.</p>
             <div class="equipment-list" hidden aria-label="Current equipment inventory">
                 <div class="equipment-list-column">
+                    <div class="equipment-list-heading"></div>
                     <div class="equipment-row equipment-row-heading"><span>No.</span><span>Description</span><span>Quantity</span></div>
                     <div class="equipment-row"><span>01</span><span>HDD Machine</span><strong>10</strong></div>
                     <div class="equipment-row"><span>02</span><span>Service Vehicle</span><strong>7</strong></div>
@@ -555,6 +556,8 @@
         const equipmentStats = document.querySelector('.equipment-stats');
         const equipmentStatsSelectable = document.querySelectorAll('.equipment-stat-selectable');
         const equipmentList = document.querySelector('.equipment-list');
+        const equipmentListHeading = document.querySelector('.equipment-list-heading');
+        const equipmentRows = [...document.querySelectorAll('.equipment-row:not(.equipment-row-heading)')];
         const projectCounters = document.querySelectorAll('.project-count-number');
         const projectStats = document.querySelector('.project-stats');
 
@@ -571,6 +574,20 @@
                 closeEquipmentList();
                 return;
             }
+
+            const filter = stat.dataset.equipmentFilter;
+            equipmentListHeading.textContent = filter === 'types'
+                ? 'Equipment types (15 types)'
+                : 'Fiber testing equipment (9 units)';
+
+            equipmentRows.forEach(row => {
+                const description = row.children[1].textContent.trim();
+                const isTestingEquipment = ['Blowing Machine', 'Fusion Machine', 'OTDR', 'OPM'].includes(description);
+                row.hidden = filter === 'testing' && !isTestingEquipment;
+                row.classList.toggle('equipment-row-testing', filter === 'testing');
+            });
+
+            document.querySelector('.equipment-row-heading').classList.toggle('equipment-row-testing', filter === 'testing');
 
             equipmentList.hidden = false;
             equipmentStatsSelectable.forEach(selectedStat => {
