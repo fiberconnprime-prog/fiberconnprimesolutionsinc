@@ -365,6 +365,18 @@ header nav ul li a.active {
     border-right: 0;
 }
 
+.equipment-stat-selectable {
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.equipment-stat-selectable:hover,
+.equipment-stat-selectable:focus-visible,
+.equipment-stat-selectable.is-active {
+    outline: none;
+    background: #fff3ed;
+}
+
 .equipment-stat strong {
     display: block;
     color: #1e3d59;
@@ -388,6 +400,10 @@ header nav ul li a.active {
     width: 100%;
     max-width: 1080px;
         border-bottom: 1px solid rgba(30, 61, 89, 0.22);
+}
+
+.equipment-list[hidden] {
+    display: none;
 }
 
 .equipment-list-column {
@@ -738,6 +754,8 @@ header nav ul li a.active {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 8px;
     width: calc(100% + 36px);
+    max-height: 460px;
+    overflow-y: auto;
     margin: -25px -18px 22px;
 }
 
@@ -835,6 +853,77 @@ header nav ul li a.active {
 
 .project-stat-ongoing {
     background: transparent;
+}
+
+.project-stat-selectable {
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.project-stat-selectable:hover,
+.project-stat-selectable:focus-visible,
+.project-stat-selectable.is-active {
+    outline: none;
+    background: #fff3ed;
+}
+
+.project-list {
+    display: grid;
+    gap: 10px;
+    margin: 0 0 34px;
+    text-align: left;
+}
+
+.project-list[hidden] {
+    display: none;
+}
+
+.project-list-heading {
+    color: #1e3d59;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.project-list-item {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 12px;
+    align-items: center;
+    padding: 14px 16px;
+    border-left: 3px solid #1e3d59;
+    background: #f8f7f4;
+}
+
+.project-list-item-ongoing {
+    border-left-color: #e64825;
+}
+
+.project-list-item strong,
+.project-list-item span {
+    display: block;
+}
+
+.project-list-item strong {
+    color: #1e3d59;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+.project-list-item span {
+    margin-top: 4px;
+    color: #666666;
+    font-size: 12px;
+}
+
+.project-list-status {
+    color: #2e7d32 !important;
+    font-weight: 700;
+    text-align: right;
+    text-transform: uppercase;
+}
+
+.project-list-status-ongoing {
+    color: #e64825 !important;
 }
 
 #map {
