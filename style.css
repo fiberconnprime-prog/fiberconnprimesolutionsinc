@@ -414,6 +414,14 @@ header nav ul li a.active {
     box-shadow: 0 10px 28px rgba(30, 61, 89, 0.07);
 }
 
+.equipment-list-heading {
+    padding: 16px;
+    border-bottom: 1px solid #e2ddd4;
+    color: #1e3d59;
+    font-size: 18px;
+    font-weight: 700;
+}
+
 .equipment-row {
     display: grid;
     grid-template-columns: 90px 1fr 140px;
@@ -426,6 +434,18 @@ header nav ul li a.active {
     color: #1e252b;
     font-size: 14px;
     transition: background-color 0.2s ease, padding-left 0.2s ease;
+}
+
+.equipment-row[hidden] {
+    display: none;
+}
+
+.equipment-row-testing {
+    grid-template-columns: 1fr 140px;
+}
+
+.equipment-row-testing > :first-child {
+    display: none;
 }
 
 .equipment-row:nth-child(even) {
