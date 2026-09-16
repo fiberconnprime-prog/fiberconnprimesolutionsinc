@@ -81,7 +81,7 @@
                 of both urban and rural infrastructure.
             </p>
             <p>			
-				Fiberconn Prime Solutions Inc. is a member of the Ironcon Builders
+				Fiberconn Prime Solutions Inc., is a member of the Ironcon Builders
 				and Development Corporation, delivering infrastructure, engineering,
 				and construction solutions throughout the Philippines.
             </p>
@@ -96,7 +96,7 @@
                 </div>
                 <div class="executive-message">
                     <span class="executive-label">Leadership perspective</span>
-                    <h3>Building reliable infrastructure<br>and trusted partnerships<br>across the Philippines.</h3>
+                    <h3>Building reliable telecom infrastructure<br>and trusted partnerships<br>across the Philippines.</h3>
                 </div>
             </div>
 
@@ -212,16 +212,16 @@
                     </div>
                     <h3>FIBER OPTIC SPLICING, TESTING, AND COMMISSIONING</h3>
                 </div>
-                <div class="card">
+                <div class="card" tabindex="0" role="button" aria-expanded="false">
                     <div class="card-gallery">
-                        <img src="FULL TURNKEY PROJECT 1.png" alt="Full turnkey telecommunication project work">
-                        <img src="FULL TURNKEY PROJECT 2.png" alt="Full turnkey telecommunication project work">
-                        <img src="FULL TURNKEY PROJECT 3.png" alt="Full turnkey telecommunication project work">
-                        <img src="FULL TURNKEY PROJECT 4.png" alt="Full turnkey telecommunication project work">
-                        <img src="FULL TURNKEY PROJECT 5.png" alt="Full turnkey telecommunication project work">
-                        <img src="FULL TURNKEY PROJECT 6.png" alt="Full turnkey telecommunication project work">
+                        <img src="SEMI-TURNKEY PROJECT 1.png" alt="Semi-turnkey telecommunication project work">
+                        <img src="SEMI-TURNKEY PROJECT 2.png" alt="Semi-turnkey telecommunication project work">
+                        <img src="SEMI-TURNKEY PROJECT 3.png" alt="Semi-turnkey telecommunication project work">
+                        <img src="SEMI-TURNKEY PROJECT 4.png" alt="Semi-turnkey telecommunication project work">
+                        <img src="SEMI-TURNKEY PROJECT 5.png" alt="Semi-turnkey telecommunication project work">
+                        <img src="SEMI-TURNKEY PROJECT 6.png" alt="Semi-turnkey telecommunication project work">
                     </div>
-                    <h3>FULL TURNKEY PROJECT &amp; SEMI-FULL TURNKEY PROJECT</h3>
+                    <h3>SEMI-TURNKEY PROJECT</h3>
                 </div>
             </div>
         </div>
@@ -236,11 +236,12 @@
                 <p class="section-intro">Our active fleet supports underground installation, transport, logistics, and fiber optic testing across every stage of delivery.</p>
             </div>
             <div class="equipment-stats" aria-label="Equipment summary">
-                <div class="equipment-stat"><strong class="count-number" data-count="45">0</strong><span>total equipment units</span></div>
-                <div class="equipment-stat"><strong class="count-number" data-count="15">0</strong><span>equipment types</span></div>
-                <div class="equipment-stat"><strong class="count-number" data-count="9">0</strong><span>fiber testing units</span></div>
+                <div class="equipment-stat equipment-stat-selectable" role="button" tabindex="0" aria-expanded="false"><strong class="count-number" data-count="45">0</strong><span>total equipment units</span></div>
+                <div class="equipment-stat equipment-stat-selectable" role="button" tabindex="0" aria-expanded="false"><strong class="count-number" data-count="15">0</strong><span>equipment types</span></div>
+                <div class="equipment-stat equipment-stat-selectable" role="button" tabindex="0" aria-expanded="false"><strong class="count-number" data-count="9">0</strong><span>fiber testing units</span></div>
             </div>
-            <div class="equipment-list" aria-label="Current equipment inventory">
+            <p class="section-subtitle equipment-instruction">Click any number above to view the equipment list.</p>
+            <div class="equipment-list" hidden aria-label="Current equipment inventory">
                 <div class="equipment-list-column">
                     <div class="equipment-row equipment-row-heading"><span>No.</span><span>Description</span><span>Quantity</span></div>
                     <div class="equipment-row"><span>01</span><span>HDD Machine</span><strong>10</strong></div>
@@ -267,21 +268,22 @@
     <section class="projects-map" id="projects-map">
         <div class="container">
             <h2>Our Completed &amp; Ongoing Projects</h2>
-            <p class="section-subtitle">Click on any pin on the map to view project details.</p>
+            <p class="section-subtitle">Click a project number to view its list, or click any pin on the map to view project details.</p>
             <div class="project-stats" aria-label="Project summary">
-                <div class="project-stat">
+                <div class="project-stat project-stat-selectable" data-project-filter="Completed" role="button" tabindex="0" aria-expanded="false">
                     <strong class="project-count-number" data-count="24">0</strong>
                     <span>completed projects</span>
                 </div>
-                <div class="project-stat project-stat-ongoing">
-                    <strong class="project-count-number" data-count="2">0</strong>
+                <div class="project-stat project-stat-selectable project-stat-ongoing" data-project-filter="Ongoing" role="button" tabindex="0" aria-expanded="false">
+                    <strong class="project-count-number" data-count="4">0</strong>
                     <span>ongoing projects</span>
                 </div>
-                <div class="project-stat">
-                    <strong class="project-count-number" data-count="26">0</strong>
+                <div class="project-stat project-stat-selectable" data-project-filter="All" role="button" tabindex="0" aria-expanded="false">
+                    <strong class="project-count-number" data-count="28">0</strong>
                     <span>total projects</span>
                 </div>
             </div>
+            <div class="project-list" hidden aria-live="polite"></div>
             <div id="map"></div>
         </div>
     </section>
@@ -454,7 +456,9 @@
             { title: "STT Roosevelt-CEF Roosevelt", client: "HGC / DWIC", method: "FTK", distance: "1,300 meters", status: "Completed", coords: [14.6531, 121.0189] },
             { title: "Ormoc Leyte 1", client: "Converge / Gwangshin", method: "HDD Works", distance: "15,000 meters", status: "Completed", coords: [11.0050, 124.6075] },
             { title: "Ormoc Leyte 2", client: "Converge / Gwangshin", method: "HDD Works", distance: "10,000 meters", status: "Completed", coords: [11.0250, 124.6150] },
-            { title: "Ormoc Leyte 3", client: "Converge / Gwangshin", method: "HDD Works", distance: "4,390.7 meters", status: "Completed", coords: [11.0450, 124.6250] }
+            { title: "Ormoc Leyte 3", client: "Converge / Gwangshin", method: "HDD Works", distance: "4,390.7 meters", status: "Completed", coords: [11.0450, 124.6250] },
+            { title: "NCR BANGIS PROJECT - MANDALUYONG", client: "A-Link", method: "STK", distance: "5,000 meters", status: "Ongoing", coords: [14.5936944, 121.0270278] },
+            { title: "NCR BANGIS PROJECT - MANILA", client: "A-Link", method: "STK", distance: "12,000 meters", status: "Ongoing", coords: [14.6031111, 120.9912500] }
         ];
 
         projects.forEach(project => {
@@ -486,10 +490,111 @@
             }).addTo(map);
         });
 
+        const projectList = document.querySelector('.project-list');
+        const projectStatsSelectable = document.querySelectorAll('.project-stat-selectable');
+
+        function renderProjectList(filter, activeStat) {
+            const filteredProjects = filter === 'All'
+                ? projects
+                : projects.filter(project => project.status === filter);
+
+            projectList.innerHTML = `
+                <div class="project-list-heading">${filter === 'All' ? 'All projects' : `${filter} projects`} (${filteredProjects.length})</div>
+                ${filteredProjects.map(project => `
+                    <div class="project-list-item ${project.status === 'Ongoing' ? 'project-list-item-ongoing' : ''}">
+                        <div>
+                            <strong>${project.title}</strong>
+                            <span>Client: ${project.client} | Distance: ${project.distance}</span>
+                        </div>
+                        <span class="project-list-status ${project.status === 'Ongoing' ? 'project-list-status-ongoing' : ''}">${project.status}</span>
+                    </div>
+                `).join('')}
+            `;
+            projectList.hidden = false;
+            projectStatsSelectable.forEach(stat => {
+                const isActive = stat === activeStat;
+                stat.classList.toggle('is-active', isActive);
+                stat.setAttribute('aria-expanded', String(isActive));
+            });
+        }
+
+        function toggleProjectList(stat) {
+            if (!projectList.hidden && stat.classList.contains('is-active')) {
+                closeProjectList();
+                return;
+            }
+
+            renderProjectList(stat.dataset.projectFilter, stat);
+        }
+
+        function closeProjectList() {
+            projectList.hidden = true;
+            projectStatsSelectable.forEach(stat => {
+                stat.classList.remove('is-active');
+                stat.setAttribute('aria-expanded', 'false');
+            });
+        }
+
+        projectStatsSelectable.forEach(stat => {
+            stat.addEventListener('click', () => toggleProjectList(stat));
+            stat.addEventListener('keydown', event => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    toggleProjectList(stat);
+                }
+            });
+        });
+
+        document.addEventListener('click', event => {
+            if (!event.target.closest('.project-stats, .project-list')) {
+                closeProjectList();
+            }
+        });
+
         const equipmentCounters = document.querySelectorAll('.count-number');
         const equipmentStats = document.querySelector('.equipment-stats');
+        const equipmentStatsSelectable = document.querySelectorAll('.equipment-stat-selectable');
+        const equipmentList = document.querySelector('.equipment-list');
         const projectCounters = document.querySelectorAll('.project-count-number');
         const projectStats = document.querySelector('.project-stats');
+
+        function closeEquipmentList() {
+            equipmentList.hidden = true;
+            equipmentStatsSelectable.forEach(stat => {
+                stat.classList.remove('is-active');
+                stat.setAttribute('aria-expanded', 'false');
+            });
+        }
+
+        function toggleEquipmentList(stat) {
+            if (!equipmentList.hidden && stat.classList.contains('is-active')) {
+                closeEquipmentList();
+                return;
+            }
+
+            equipmentList.hidden = false;
+            equipmentStatsSelectable.forEach(selectedStat => {
+                const isActive = selectedStat === stat;
+                selectedStat.classList.toggle('is-active', isActive);
+                selectedStat.setAttribute('aria-expanded', String(isActive));
+            });
+        }
+
+        equipmentStatsSelectable.forEach(stat => {
+            stat.addEventListener('click', () => toggleEquipmentList(stat));
+            stat.addEventListener('keydown', event => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    toggleEquipmentList(stat);
+                }
+            });
+        });
+
+        document.addEventListener('click', event => {
+            if (!event.target.closest('.equipment-stats, .equipment-list')) {
+                closeEquipmentList();
+            }
+        });
 
         function animateCounters(counters) {
             counters.forEach(counter => {
